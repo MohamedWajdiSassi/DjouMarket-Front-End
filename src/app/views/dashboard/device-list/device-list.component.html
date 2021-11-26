@@ -1,0 +1,224 @@
+<div class="main-content" >
+  
+  <div class="card b-1 hover-shadow-2 mb-20" *ngFor="let device of devices" >
+    
+    <a class="media card-body" href="#"  >
+      <div class="media-left pr-12">
+        <img class="avatar avatar-xl no-radius" src="#" alt="...">
+      </div>
+
+      <div class="media-body">
+        <div class="mb-2">
+          <span class="fs-20 pr-16">{{device.title}}</span>
+          <span class="badge badge-success text-uppercase no-radius ls-1 opacity-75">{{device.deviceCategory}}</span>
+        </div>
+        <small class="fs-16 fw-300 ls-1">{{device.description}}</small>
+      </div>
+
+      <div class="media-right text-right d-none d-md-block">
+        <p class="fs-14 text-fade mb-12"><i class="fa fa-map-marker pr-1"></i> {{device.location}}</p>
+        <span class="text-fade fs-12">Persons : <strong>{{device.numPerson}}</strong></span>
+      </div>
+    </a>
+
+    <footer class="card-footer flexbox align-items-center">
+      <div>
+        <strong>Price :</strong>
+        <span>{{device.price}} £</span>
+      </div>
+      <div class="card-hover-show">
+        <a class="btn btn-xs fs-10 btn-bold btn-primary" href="#">Edit</a>
+        <a class="btn btn-xs fs-10 btn-bold btn-danger" href="#">Delete</a>
+      </div>
+    </footer>
+    
+  </div>
+  </div>
+  <div class="card b-1 hover-shadow-2 mb-20">
+    <div class="media card-body">
+      <div class="media-left pr-12">
+        <img class="avatar avatar-xl no-radius" src="assets/img/avatar/house1.jpeg" alt="...">
+      </div>
+
+      <div class="media-body">
+        <div class="mb-2">
+          <span class="fs-20 pr-16">Confort Familly House</span>
+          <span class="badge badge-success text-uppercase no-radius ls-1 opacity-75">House</span>
+        </div>
+        <small class="fs-16 fw-300 ls-1">Big Familly house on the lake of Frankfort Germany with great view , with 5 rooms kitchen and bathroom
+           .quite place to live in. </small>
+      </div>
+
+      <div class="media-right text-right d-none d-md-block">
+        <p class="fs-14 text-fade mb-12"><i class="fa fa-map-marker pr-1"></i> Frankfort,Germany</p>
+        <span class="text-fade"><i class="fa fa-money pr-1"></i> 1400 EUR per month</span>
+      </div>
+    </div>
+
+    <footer class="card-footer flexbox align-items-center">
+      <div>
+        <strong>Persons :</strong>
+        <span> 8</span>
+      </div>
+      <div class="card-hover-show">
+        <a class="btn btn-xs fs-10 btn-bold btn-primary" (click)="open(content)" >Add History</a>
+        <a class="btn btn-xs fs-10 btn-bold btn-primary"  data-toggle="modal" data-target="#modal-contact">Update</a>
+        <a class="btn btn-xs fs-10 btn-bold btn-danger" >Delete</a>
+      </div>
+    </footer>
+  </div>
+
+
+
+  <div class="card b-1 hover-shadow-2 mb-20">
+    <div class="media card-body">
+      <div class="media-left pr-12">
+        <img class="avatar avatar-xl no-radius" src="assets/img/avatar/house2.jpeg" alt="...">
+      </div>
+
+      <div class="media-body">
+        <div class="mb-2">
+          <span class="fs-20 pr-16">Small Studio </span>
+          <span class="badge badge-success text-uppercase no-radius ls-1 opacity-75">House</span>
+        </div>
+        <small class="fs-16 fw-300 ls-1">Studio in the center of berlin contain everything you need. away from supermarkets 5 minuts and from train station2 min walking</small>
+      </div>
+
+      <div class="media-right text-right d-none d-md-block">
+        <p class="fs-14 text-fade mb-12"><i class="fa fa-map-marker pr-1"></i> Berlin, Berlin</p>
+        <span class="text-fade"><i class="fa fa-money pr-1"></i> $800 per month</span>
+      </div>
+    </div>
+
+    <footer class="card-footer flexbox align-items-center">
+      <div>
+        <strong>Persons :</strong>
+        <span> 2</span>
+      </div>
+      <div class="card-hover-show">
+        <a class="btn btn-xs fs-10 btn-bold btn-primary" href="">Add History</a>
+        <a class="btn btn-xs fs-10 btn-bold btn-primary" href="applicant-list.html#" data-toggle="modal" data-target="#modal-contact">Update</a>
+        <a class="btn btn-xs fs-10 btn-bold btn-danger" href="applicant-list.html#">Delete</a>
+      </div>
+    </footer>
+  </div>
+
+
+
+
+  <div class="card b-1 hover-shadow-2 mb-20">
+    <div class="media card-body">
+      <div class="media-left pr-12">
+        <img class="avatar avatar-xl no-radius" src="assets/img/avatar/ebike1.jpeg" alt="...">
+      </div>
+
+      <div class="media-body">
+        <div class="mb-2">
+          <span class="fs-20 pr-16">New Black E-bike</span>
+          <span class="badge badge-success text-uppercase no-radius ls-1 opacity-75">E-bike</span>
+        </div>
+        <small class="fs-16 fw-300 ls-1">New generation of Hero Electric Flash with great bettray life </small>
+      </div>
+
+      <div class="media-right text-right d-none d-md-block">
+        <p class="fs-14 text-fade mb-12"><i class="fa fa-map-marker pr-1"></i> Cologne, Germany</p>
+        <span class="text-fade"><i class="fa fa-money pr-1"></i> 40Eur per day</span>
+      </div>
+    </div>
+
+    <footer class="card-footer flexbox align-items-center">
+      <div>
+        <strong>Model :</strong>
+        <span> Hero Electric Flash</span>
+      </div>
+      <div class="card-hover-show">
+        <a class="btn btn-xs fs-10 btn-bold btn-primary" (click)="open(content)" >Add History</a>
+        <a class="btn btn-xs fs-10 btn-bold btn-primary" href="applicant-list.html#" data-toggle="modal" data-target="#modal-contact">Update</a>
+        <a class="btn btn-xs fs-10 btn-bold btn-danger" href="applicant-list.html#">Delete</a>
+      </div>
+    </footer>
+  </div>
+
+
+
+  <div class="card b-1 hover-shadow-2 mb-20">
+    <div class="media card-body">
+      <div class="media-left pr-12">
+        <img class="avatar avatar-xl no-radius" src="assets/img/avatar/ebike2.jpeg" alt="...">
+      </div>
+
+      <div class="media-body">
+        <div class="mb-2">
+          <span class="fs-20 pr-16">Good condition Bajaj Chetak	</span>
+          <span class="badge badge-success text-uppercase no-radius ls-1 opacity-75">E-bike</span>
+        </div>
+        <small class="fs-16 fw-300 ls-1">Ebike availbe for taking a grea ride on it for whole day without worring about betrray</small>
+      </div>
+
+      <div class="media-right text-right d-none d-md-block">
+        <p class="fs-14 text-fade mb-12"><i class="fa fa-map-marker pr-1"></i> munich, Germany</p>
+        <span class="text-fade"><i class="fa fa-money pr-1"></i> $35 per day</span>
+      </div>
+    </div>
+
+    <footer class="card-footer flexbox align-items-center">
+      <div>
+        <strong>Model :</strong>
+        <span> Bajaj Chetak	</span>
+      </div>
+      <div class="card-hover-show">
+        <button><a class="btn btn-xs fs-10 btn-bold btn-primary" class="modal-title" id="modal-basic-title"  href="applicant-list.html#">Add History</a></button>
+        <a class="btn btn-xs fs-10 btn-bold btn-primary" href="applicant-list.html#" data-toggle="modal" data-target="#modal-contact">Update</a>
+        <a class="btn btn-xs fs-10 btn-bold btn-danger" href="applicant-list.html#">Delete</a>
+      </div>
+    </footer>
+  </div>
+
+  <ng-template #content let-modal>
+    <div class="modal-header">
+      <h4 class="modal-title" id="modal-basic-title">Device New History </h4>
+      <button type="button" class="close" aria-label="Close" (click)="modal.dismiss('Cross click')">
+        <span aria-hidden="true">&times;</span>
+      </button>
+    </div>
+    <div class="modal-body">
+      <form>
+        <div class="form-group">
+          <label for="dateOfBirth">Pick Up Date</label>
+          <div class="input-group">
+            <input id="dateOfBirth" class="form-control" placeholder="yyyy-mm-dd" name="dp" ngbDatepicker #dp="ngbDatepicker">
+            <div class="input-group-append">
+              <button class="btn btn-outline-secondary calendar" (click)="dp.toggle()" type="button"></button>
+            </div>
+          </div>
+        </div>
+        <div class="form-group">
+          <label for="dateOfBirth">Return of Date</label>
+          <div class="input-group">
+            <input id="dateOfBirth" class="form-control" placeholder="yyyy-mm-dd" name="dp" ngbDatepicker #dp="ngbDatepicker">
+            <div class="input-group-append">
+              <button class="btn btn-outline-secondary calendar" (click)="dp.toggle()" type="button"></button>
+            </div>
+          </div>
+        </div>
+        <div class="form-group">
+          <label for="dateOfBirth">Customer Name</label>
+          <div class="input-group">
+            <input id="dateOfBirth" class="form-control" placeholder="Name" name="dp" ngbDatepicker #dp="ngbDatepicker">
+            
+          </div>
+        </div>
+      </form>
+    </div>
+    <div class="modal-footer">
+      <button type="button" class="btn btn-outline-dark" (click)="modal.close('Save click')">Save</button>
+    </div>
+  </ng-template>
+  
+  
+
+
+  
+
+
+

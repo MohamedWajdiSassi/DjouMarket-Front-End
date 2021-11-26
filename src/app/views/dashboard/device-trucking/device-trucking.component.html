@@ -1,0 +1,392 @@
+<main class="main-container">
+
+    <header class="header header-inverse bg-img" style="background-image: url(../assets/img/gallery/1.jpg)" data-overlay="7">
+      <div class="header-info">
+        <div class="left">
+          <h1 class="header-title">Calendar</h1>
+        </div>
+
+        <div class="right flex-middle">
+          <form class="lookup lookup-lg lookup-circle lookup-right">
+            <input type="text" name="s">
+          </form>
+        </div>
+      </div>
+
+      <div class="header-action">
+        <div class="flexbox align-items-center gap-items-4">
+          <a class="text-white" href="calendar.html#" data-calendar="prev"><i class="ti-angle-left"></i></a>
+          <span class="text-white fs-16" id="calendar-title"></span>
+          <a class="text-white" href="calendar.html#" data-calendar="next"><i class="ti-angle-right"></i></a>
+        </div>
+
+        <nav class="nav">
+          <a class="nav-link" href="calendar.html#" data-calendar="today">Today</a>
+          <a class="nav-link active" href="calendar.html#" data-calendar-view="month">Month</a>
+          <a class="nav-link" href="calendar.html#" data-calendar-view="basicWeek">Week</a>
+          <a class="nav-link" href="calendar.html#" data-calendar-view="basicDay">Day</a>
+          <div class="dropdown">
+            <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="calendar.html#">More</a>
+            <div class="dropdown-menu dropdown-menu-right">
+              <a class="dropdown-item" href="calendar.html#" data-calendar-view="agendaWeek">Agenda week</a>
+              <a class="dropdown-item" href="calendar.html#" data-calendar-view="agendaDay">Agenda day</a>
+              <a class="dropdown-item" href="calendar.html#" data-calendar-view="listYear">List year</a>
+              <a class="dropdown-item" href="calendar.html#" data-calendar-view="listMonth">List month</a>
+              <a class="dropdown-item" href="calendar.html#" data-calendar-view="listWeek">List week</a>
+              <a class="dropdown-item" href="calendar.html#" data-calendar-view="listDay">List day</a>
+            </div>
+          </div>
+        </nav>
+      </div>
+    </header>
+
+    <div class="main-content">
+      <div class="card card-body">
+        <div id="calendar" data-provide="fullcalendar"></div>
+      </div>
+    </div><!--/.main-content -->
+
+
+    <!-- Footer -->
+    <footer class="site-footer">
+      <div class="row">
+        <div class="col-md-6">
+          <p class="text-center text-md-left">Copyright © 2019 <a href="../../theadmin.html">TheAdmin</a>. All rights reserved.</p>
+        </div>
+
+        <div class="col-md-6">
+          <ul class="nav nav-primary nav-dotted nav-dot-separated justify-content-center justify-content-md-end">
+            <li class="nav-item">
+              <a class="nav-link" href="../help/articles.html">Documentation</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="../help/faq.html">FAQ</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="https://themeforest.net/item/theadmin-responsive-bootstrap-4-admin-dashboard-webapp-template/20475359?license=regular&amp;open_purchase_for_item_id=20475359&amp;purchasable=source&amp;ref=thethemeio">Purchase Now</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </footer>
+    <!-- END Footer -->
+
+  </main>
+  <!-- END Main container -->
+
+
+
+  <!-- Modal - Add new event -->
+  <div class="modal modal-right fade" id="modal-add-event" tabindex="-1">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title">Create new event</h5>
+          <button type="button" class="close" data-dismiss="modal">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+
+        <div class="modal-body form-type-material">
+          <div class="form-group">
+            <input type="text" class="form-control">
+            <label>Title</label>
+          </div>
+
+          <div class="form-group input-group">
+            <div class="input-group-input">
+              <input type="text" class="form-control" data-provide="datepicker">
+              <label>Start date</label>
+            </div>
+
+            <div class="input-group-input">
+              <input type="text" class="form-control" data-provide="timepicker">
+              <label>Start time</label>
+            </div>
+          </div>
+
+          <div class="form-group input-group">
+            <div class="input-group-input">
+              <input type="text" class="form-control" data-provide="datepicker">
+              <label>End date</label>
+            </div>
+
+            <div class="input-group-input">
+              <input type="text" class="form-control" data-provide="timepicker">
+              <label>End time</label>
+            </div>
+          </div>
+
+          <div class="form-group">
+            <input type="text" class="form-control">
+            <label>Location</label>
+          </div>
+
+          <div class="form-group">
+            <textarea class="form-control" rows="3"></textarea>
+            <label>Description</label>
+          </div>
+
+          <br>
+          <div class="text-center">
+            <div class="color-selector color-selector-sm">
+              <label>
+                <input type="radio" name="color-label" checked>
+                <span class="bg-primary"></span>
+              </label>
+
+              <label>
+                <input type="radio" name="color-label">
+                <span class="bg-success"></span>
+              </label>
+
+              <label>
+                <input type="radio" name="color-label">
+                <span class="bg-info"></span>
+              </label>
+
+              <label>
+                <input type="radio" name="color-label">
+                <span class="bg-warning"></span>
+              </label>
+
+              <label>
+                <input type="radio" name="color-label">
+                <span class="bg-danger"></span>
+              </label>
+
+              <label>
+                <input type="radio" name="color-label">
+                <span class="bg-purple"></span>
+              </label>
+
+              <label>
+                <input type="radio" name="color-label">
+                <span class="bg-pink"></span>
+              </label>
+
+              <label>
+                <input type="radio" name="color-label">
+                <span class="bg-yellow"></span>
+              </label>
+
+              <label>
+                <input type="radio" name="color-label">
+                <span class="bg-brown"></span>
+              </label>
+
+              <label>
+                <input type="radio" name="color-label">
+                <span class="bg-dark"></span>
+              </label>
+            </div>
+          </div>
+        </div>
+
+        <div class="modal-footer">
+          <button type="button" class="btn btn-bold btn-pure btn-secondary" data-dismiss="modal">Cancel</button>
+          <button type="button" class="btn btn-bold btn-pure btn-primary">Save</button>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- END Modal - Add new event -->
+
+
+
+
+
+
+  <!-- Modal - Edit event -->
+  <div class="modal modal-right fade" id="modal-edit-event" tabindex="-1">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title">Edit event</h5>
+          <button type="button" class="close" data-dismiss="modal">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+
+        <div class="modal-body form-type-material">
+          <div class="form-group">
+            <input type="text" class="form-control" value="Birthday Party">
+            <label>Title</label>
+          </div>
+
+          <div class="form-group input-group">
+            <div class="input-group-input">
+              <input type="text" class="form-control" value="01/01/2017" data-provide="datepicker">
+              <label>Start date</label>
+            </div>
+
+            <div class="input-group-input">
+              <input type="text" class="form-control" value="7:00 PM" data-provide="timepicker">
+              <label>Start time</label>
+            </div>
+          </div>
+
+          <div class="form-group input-group">
+            <div class="input-group-input">
+              <input type="text" class="form-control" value="01/01/2017" data-provide="datepicker">
+              <label>End date</label>
+            </div>
+
+            <div class="input-group-input">
+              <input type="text" class="form-control" value="10:30 PM" data-provide="timepicker">
+              <label>End time</label>
+            </div>
+          </div>
+
+          <div class="form-group">
+            <input type="text" class="form-control" value="Los Angeles, CA">
+            <label>Location</label>
+          </div>
+
+          <div class="form-group">
+            <textarea class="form-control" rows="3"></textarea>
+            <label>Description</label>
+          </div>
+
+          <br>
+          <div class="text-center">
+            <div class="color-selector color-selector-sm">
+              <label>
+                <input type="radio" name="color-label" checked>
+                <span class="bg-primary"></span>
+              </label>
+
+              <label>
+                <input type="radio" name="color-label">
+                <span class="bg-success"></span>
+              </label>
+
+              <label>
+                <input type="radio" name="color-label">
+                <span class="bg-info"></span>
+              </label>
+
+              <label>
+                <input type="radio" name="color-label">
+                <span class="bg-warning"></span>
+              </label>
+
+              <label>
+                <input type="radio" name="color-label">
+                <span class="bg-danger"></span>
+              </label>
+
+              <label>
+                <input type="radio" name="color-label">
+                <span class="bg-purple"></span>
+              </label>
+
+              <label>
+                <input type="radio" name="color-label" checked>
+                <span class="bg-pink"></span>
+              </label>
+
+              <label>
+                <input type="radio" name="color-label">
+                <span class="bg-yellow"></span>
+              </label>
+
+              <label>
+                <input type="radio" name="color-label">
+                <span class="bg-brown"></span>
+              </label>
+
+              <label>
+                <input type="radio" name="color-label">
+                <span class="bg-dark"></span>
+              </label>
+            </div>
+          </div>
+        </div>
+
+        <div class="modal-footer">
+          <button type="button" class="btn btn-bold btn-pure btn-secondary" data-dismiss="modal">Cancel</button>
+          <button type="button" class="btn btn-bold btn-pure btn-primary">Save</button>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- END Modal - Edit event -->
+
+
+
+
+
+  <!-- Modal - View event -->
+  <div class="modal modal-top fade" id="modal-view-event" tabindex="-1">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title">Birthday</h5>
+          <button type="button" class="close" data-dismiss="modal">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+
+        <div class="modal-body">
+          <div class="flexbox mb-16">
+            <i class="ti-alarm-clock fs-18 w-30px"></i>
+            <div class="flex-grow">
+              <span class="mb-0">November 11th 2016, 7:00:00 pm - November 11th 2016, 10:30:00 pm</span><br>
+              <small>Does not repeat</small>
+            </div>
+          </div>
+
+          <div class="flexbox mb-16">
+            <i class="ti-bell fs-18 w-30px"></i>
+            <div class="flex-grow">
+              <span>30 minutes before</span><br>
+              <span>15 minutes before</span><br>
+              <span>30 minutes after</span>
+            </div>
+          </div>
+
+          <div class="flexbox align-items-center mb-16">
+            <i class="ti-location-pin fs-18 w-30px"></i>
+            <div class="flex-grow">
+              <span>Los Angeles, CA</span>
+            </div>
+          </div>
+
+          <div class="flexbox align-items-center">
+            <i class="ti-user fs-18 w-30px"></i>
+            <div class="flex-grow">
+              <a href="calendar.html#"><img class="avatar" src="../assets/img/avatar/1.jpg" alt="..."></a>
+              <a href="calendar.html#"><img class="avatar" src="../assets/img/avatar/2.jpg" alt="..."></a>
+              <a href="calendar.html#"><img class="avatar" src="../assets/img/avatar/3.jpg" alt="..."></a>
+            </div>
+          </div>
+        </div>
+
+        <div class="modal-footer">
+          <button class="btn btn-flat btn-primary" id="open-modal-edit">Edit</button>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- END Modal - View event -->
+
+
+
+  <!-- Global quickview -->
+  <div id="qv-global" class="quickview" data-url="../assets/data/quickview-global.html">
+    <div class="spinner-linear">
+      <div class="line"></div>
+    </div>
+  </div>
+  <!-- END Global quickview -->
+
+
+
+
+  <!-- Scripts -->
+  <script src="../../../../assets/js/core.min.js" data-provide="fullcalendar"></script>
+  <script src="../../../../assets/js/app.min.js"></script>
+  <script src="../../../../assets/js/script.min.js"></script>
+
+ 

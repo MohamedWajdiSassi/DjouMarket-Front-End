@@ -1,0 +1,132 @@
+
+          <div class="col-12" >
+            <div class="card">
+              <h4 class="card-title"><strong>Device</strong> details</h4>
+
+              <form  #f="ngForm" (ngSubmit)="saveDevice(f)">
+              <div class="card-body" >
+                <div class="row">
+                  
+
+
+                  <div class="col-md-4">
+                    <div class="form-group">
+                      <label for="input-normal">Title :</label>
+                      <input type="text" ngModel #title="ngModel"  class="form-control" name="title" id="title" placeholder="title...">
+                    </div>
+                  </div>
+
+
+                  <div class="col-md-4">
+                    <div class="form-group">
+                      <label for="input-normal">Location :</label>
+                      <input type="text" ngModel  #location="ngModel" class="form-control" name="location" id="location" placeholder="location...">
+                    </div>
+                  </div>
+
+
+                  <div class="col-md-4">
+                    <div class="form-group">
+                      <label for="input-normal">Device Category :</label>
+                      <select id="input-normal" ype="text" ngModel #deviceCategory="ngModel" class="form-control" name="deviceCategory" id="deviceCategory" placeholder="category...">
+                        <option label="House">House</option>
+                        <option label="E-Bike">E-Bike</option>
+                        <option label="veloMobile">veloMobile</option>
+                       
+                      </select>
+                      
+                      
+                    </div>
+                  </div>
+
+
+                  <div class="col-md-4">
+                    
+                    <p>Images :</p>
+                    <div class="input-group form-type-material file-group">
+                      
+                        <input type="text" class="form-control file-value" >
+                        <input type="file"  accept=".png.jpg.jpeg" multiple>
+                        <label>Choose file...</label>
+                      
+                      <span class="input-group-append">
+                        <button class="btn btn-light file-browser" 
+                          type="button"><i class="fa fa-upload"  ></i></button>
+                        
+                      </span>
+                    </div>
+                  </div>
+
+
+                  <div class="col-md-4">
+                    <div class="form-group">
+                      <label for="input-normal">Price :</label>
+                      <input type="text" ngModel #price="ngModel" class="form-control" name="price" id="price" placeholder="price per euro...">
+                    </div>
+                  </div>
+
+
+                  <div class="col-md-4">
+                    <div class="form-group">
+                      <label for="input-normal">Number of bedrooms  :</label>
+                      <input type="text" ngModel #numBedRooms="ngModel" class="form-control" name="numBedRooms" id="numBedRooms" placeholder="How many room... ">
+                    </div>
+                  </div>
+
+
+                  <div class="col-md-4">
+                    <div class="form-group">
+                      <label for="input-normal">Number of Persons :</label>
+                      <input type="text" ngModel #numPerson="ngModel" class="form-control"name="numPerson" id="numPerson" placeholder="how many person...">
+                    </div>
+                  </div>
+
+
+                  <div class="col-md-4">
+                    <div class="form-group">
+                      <label for="input-normal">Color : </label>
+                      <input type="text" ngModel #color="ngModel" class="form-control" name="color" id="color" placeholder="color...">
+                    </div>
+                  </div>
+
+
+                  <div class="col-md-4">
+                    <div class="form-group">
+                      <label for="input-normal">Model :</label>
+                      <input type="text" ngModel #model="ngModel" class="form-control" name="model" id="model" placeholder="model...">
+                    </div>
+                  </div>
+
+
+                 
+
+
+               
+
+                  <div class="col-md-4">
+                    
+
+                    <div class="form-group">
+                      <label for="textarea">Description :</label>
+                      <textarea class="form-control" ngModel #description="ngModel" name="description" id="description" placeholder="house descrption..." rows="6"></textarea>
+                    </div>
+                  </div>
+                  <footer class="card-footer flexbox align-items-center">
+                    
+                    <hr>
+
+                    <div class="flexbox">
+                      
+                      <a class="btn btn-bold btn-success" href="form.html#">Add Device</a>
+                    </div>
+                  </footer>
+
+
+
+                 
+                </div>
+              
+              </div>
+              </form>
+            </div>
+          </div>

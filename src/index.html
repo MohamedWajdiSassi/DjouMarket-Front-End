@@ -1,0 +1,851 @@
+<html >
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="TheAdmin - Responsive Bootstrap 4 Admin, Dashboard &amp; WebApp Template">
+    <meta name="keywords" content="dashboard, index, main">
+    <meta name="keywords" content="chartjs, line, bar, bubble, pie, radar, polar">
+     <base href="/">
+
+    <title>Djou Market</title>
+    <script src='Chart.min.js'></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.4.0/Chart.min.js"></script>
+
+    <!-- Fonts -->
+    <link href="https://fonts.googleapis.com/css?family=Roboto:100,300,400,500,300i|Dosis:300,500" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Roboto:100,300,400,500,300i" rel="stylesheet">
+
+    <!-- Styles -->
+    <link href="../assets/css/core.min.css" rel="stylesheet">
+    <link href="../assets/css/app.min.css" rel="stylesheet">
+    <link href="../assets/css/style.min.css" rel="stylesheet">
+
+    <!-- Favicons -->
+    <link rel="apple-touch-icon" href="assets/img/apple-touch-icon.png">
+    <link rel="icon" href="assets/img/chari1.png">
+
+    <!--  Open Graph Tags -->
+    <meta property="og:title" content="The Admin Template of 2018!">
+    <meta property="og:description" content="TheAdmin is a responsive, professional, and multipurpose admin template powered with Bootstrap 4.">
+    <meta property="og:image" content="http://thetheme.io/theadmin/assets/img/og-img.jpg">
+    <meta property="og:url" content="http://thetheme.io/theadmin/">
+    <meta name="twitter:card" content="summary_large_image">
+  </head>
+
+<body>
+ 
+  <main>
+  
+  <app-root></app-root>
+</main>
+  
+  
+
+
+<!-- <script src="../../../../../assets/js/core.min.js"></script>-->
+<script src="./assets/js/app.min.js"></script>
+<script src="./assets/js/script.min.js"></script> 
+<!-- <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.1.3/Chart.bundle.min.js"></script> -->
+
+
+<!-- <script src="/node_modules/jquery-typeahead/dist/jquery.typeahead.min.js"></script> -->
+
+
+  <!--script src="/docs/5.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>-->
+
+<script src="./assets/js/script.min.js"> </script>
+<script src="./assets/js/chart.js"> </script>
+<script>
+  app.ready(function() {
+
+    var calendar = $('#calendar');
+
+
+
+    /* initialize the calendar
+    -----------------------------------------------------------------*/
+
+    calendar.fullCalendar({
+      header: false,
+      defaultDate: '2019-03-12',
+      editable: true,
+      droppable: true, // this allows things to be dropped onto the calendar
+      navLinks: true, // can click day/week names to navigate views
+      eventLimit: true, // allow "more" link when too many events
+      events: {
+        url: '../assets/data/json/events.json',
+        error: function() {
+          app.toast("Couldn't load events. Please try again later.");
+        }
+      },
+      viewRender: function(view, element) {
+        $('#calendar-title').text( calendar.fullCalendar('getView').title );
+      },
+      dayClick: function(date, jsEvent, view) {
+        $('#modal-add-event').modal('show');
+      },
+      eventClick: function(date, jsEvent, view) {
+        $('#modal-view-event').modal('show');
+      }
+    });
+
+
+
+    /* handle change view
+    -----------------------------------------------------------------*/
+
+    $('[data-calendar-view]').on('click', function(){
+      var view = $(this).data('calendar-view');
+      calendar.fullCalendar('changeView', view);
+
+      makeViewActive($(this));
+    });
+
+    var makeViewActive = function(e) {
+      $(e).closest('.nav').find('.nav-link.active, .dropdown-item.active').removeClass('active');
+      $(e).addClass('active');
+      if ( $(e).hasClass('dropdown-item') ) {
+        $(e).closest('.dropdown').children('.nav-link').addClass('active');
+      }
+    }
+
+
+
+    /* handle caledar actions
+    -----------------------------------------------------------------*/
+
+    $('[data-calendar]').on('click', function(){
+      var action = $(this).data('calendar');
+
+      switch(action) {
+        case 'today':
+          calendar.fullCalendar('today');
+          break;
+
+        case 'next':
+          calendar.fullCalendar('next');
+          break;
+
+        case 'prev':
+          calendar.fullCalendar('prev');
+          break;
+      }
+    });
+
+
+
+    // Once edit button clicked, close the event details modal and open edit modal
+    //
+    $('#open-modal-edit').on('click', function(){
+      $('#modal-view-event').one('hidden.bs.modal', function () {
+        $('#modal-edit-event').modal('show');
+      });
+      $('#modal-view-event').modal('hide');
+    });
+
+  });
+</script>
+
+<script>
+  app.ready(function() {
+
+
+    // ==============================================
+    // Line chart 1
+    //
+    new Chart($("#chart-line-1"), {
+      type: 'line',
+
+      // Data
+      //
+      data: {
+        labels: ["January", "February", "March", "April"],
+        datasets: [
+          {
+            label: "Revenue",
+            fill: false,
+            borderWidth: 3,
+            pointRadius: 0,
+            data: [30, 25, 35, 23]
+          }
+        ]
+      },
+
+      // Options
+      //
+      options: {
+        legend: {
+          display: false
+        },
+      }
+    });
+
+
+
+
+
+    // ==============================================
+    // Line chart 2
+    //
+    new Chart($("#chart-line-2"), {
+      type: 'line',
+
+      // Data
+      //
+      data: {
+        labels: ["January", "February", "March", "April"],
+        datasets: [
+          {
+            label: "Revenue",
+            fill: false,
+            borderWidth: 3,
+            pointRadius: 5,
+            borderColor: "#9966ff",
+            pointBackgroundColor: "#9966ff",
+            pointBorderColor: "#9966ff",
+            pointHoverBackgroundColor: "#fff",
+            pointHoverBorderColor: "#9966ff",
+            data: [30, 25, 35, 23]
+          }
+        ]
+      },
+
+      // Options
+      //
+      options: {
+        legend: {
+          display: false
+        },
+      }
+    });
+
+
+
+
+
+
+
+    // ==============================================
+    // Line chart 3
+    //
+    new Chart($("#chart-line-3"), {
+      type: 'line',
+
+      // Data
+      //
+      data: {
+        labels: ["January", "February", "March", "April"],
+        datasets: [
+          {
+            label: "Income",
+            fill: false,
+            backgroundColor: "#36a2eb",
+            borderColor: "#36a2eb",
+            borderWidth: 3,
+            pointRadius: 0,
+            data: [30, 25, 35, 23]
+          },
+          {
+            label: "Expense",
+            fill: false,
+            borderColor: "#ff6384",
+            backgroundColor: "#ff6384",
+            borderWidth: 3,
+            pointRadius: 0,
+            data: [23, 29, 30, 33]
+          }
+        ]
+      },
+
+      // Options
+      //
+      options: {}
+    });
+
+
+
+
+
+
+    // ==============================================
+    // Line chart 4
+    //
+    new Chart($("#chart-line-4"), {
+      type: 'line',
+
+      // Data
+      //
+      data: {
+        labels: ["January", "February", "March", "April"],
+        datasets: [
+          {
+            label: "Income",
+            fill: false,
+            borderWidth: 3,
+            pointRadius: 4,
+            borderColor: "#36a2eb",
+            backgroundColor: "#36a2eb",
+            pointBackgroundColor: "#36a2eb",
+            pointBorderColor: "#36a2eb",
+            pointHoverBackgroundColor: "#fff",
+            pointHoverBorderColor: "#36a2eb",
+            data: [30, 25, 35, 23]
+          },
+          {
+            label: "Expense",
+            fill: false,
+            borderWidth: 3,
+            pointRadius: 4,
+            borderColor: "#ff6384",
+            backgroundColor: "#ff6384",
+            pointBackgroundColor: "#ff6384",
+            pointBorderColor: "#ff6384",
+            pointHoverBackgroundColor: "#fff",
+            pointHoverBorderColor: "#ff6384",
+            data: [23, 29, 30, 33]
+          }
+        ]
+      },
+
+      // Options
+      //
+      options: {}
+    });
+
+
+
+
+
+
+
+
+    // ==============================================
+    // Area chart 1
+    //
+    new Chart($("#chart-area-1"), {
+      type: 'line',
+
+      // Data
+      //
+      data: {
+        labels: ["January", "February", "March", "April", "May", "June", "July"],
+        datasets: [
+          {
+            label: "Revenue",
+            backgroundColor: "rgba(51,202,185,0.5)",
+            borderWidth: 0,
+            borderColor: "rgba(0,0,0,0)",
+            data: [0, 59, 80, 58, 20, 55, 40]
+          }
+        ]
+      },
+
+      // Options
+      //
+      options: {
+        legend: {
+          display: false
+        },
+      }
+    });
+
+
+
+
+
+
+    // ==============================================
+    // Area chart 2
+    //
+    new Chart($("#chart-area-2"), {
+      type: 'line',
+
+      // Data
+      //
+      data: {
+        labels: ["January", "February", "March", "April", "May", "June", "July"],
+        datasets: [
+          {
+            label: "Income",
+            backgroundColor: "rgba(51,202,185,0.5)",
+            borderColor: "rgba(0,0,0,0)",
+            pointBackgroundColor: "rgba(51,202,185,0.5)",
+            pointBorderColor: "#fff",
+            pointHoverBackgroundColor: "#fff",
+            pointHoverBorderColor: "rgba(51,202,185,0.5)",
+            data: [0, 59, 80, 58, 20, 55, 40]
+          },
+          {
+            label: "Expenses",
+            backgroundColor: "rgba(243,245,246,0.8)",
+            borderColor: "rgba(0,0,0,0)",
+            pointBackgroundColor: "rgba(243,245,246,0.8)",
+            pointBorderColor: "#fff",
+            pointHoverBackgroundColor: "#fff",
+            pointHoverBorderColor: "rgba(243,245,246,0.8)",
+            data: [28, 48, 40, 19, 86, 27, 90]
+          }
+        ]
+      },
+
+      // Options
+      //
+      options: {}
+    });
+
+
+
+
+
+    // ==============================================
+    // Vertical bar chart 1
+    //
+    new Chart($("#chart-vbar-1"), {
+      type: 'bar',
+
+      // Data
+      //
+      data: {
+      labels: ["January", "February", "March", "April", "May", "June", "July"],
+        datasets: [
+          {
+            label: "Income",
+            backgroundColor: "rgba(51,202,185,0.5)",
+            borderColor: "rgba(0,0,0,0)",
+            hoverBackgroundColor: "rgba(51,202,185,0.7)",
+            hoverBorderColor: "rgba(0,0,0,0)",
+            data: [10, 59, 80, 58, 20, 55, 40]
+          }
+        ]
+      },
+
+      // Options
+      //
+      options: {
+        scales: {
+          yAxes: [{
+            ticks: {
+              beginAtZero: true
+            }
+          }]
+        }
+      }
+    });
+
+
+
+
+
+    // ==============================================
+    // Vertical bar chart 2
+    //
+    new Chart($("#chart-vbar-2"), {
+      type: 'bar',
+
+      // Data
+      //
+      data: {
+      labels: ["January", "February", "March", "April", "May", "June", "July"],
+        datasets: [
+          {
+            label: "Income",
+            backgroundColor: "rgba(51,202,185,0.5)",
+            borderColor: "rgba(0,0,0,0)",
+            hoverBackgroundColor: "rgba(51,202,185,0.7)",
+            hoverBorderColor: "rgba(0,0,0,0)",
+            data: [10, 59, 80, 58, 20, 55, 40]
+          },
+          {
+            label: "Expenses",
+            backgroundColor: "rgba(243,245,246,0.8)",
+            borderColor: "rgba(0,0,0,0)",
+            hoverBackgroundColor: "rgba(238,239,240,1)",
+            hoverBorderColor: "rgba(0,0,0,0)",
+            data: [28, 48, 40, 19, 86, 27, 90]
+          }
+        ]
+      },
+
+      // Options
+      //
+      options: {
+        scales: {
+          yAxes: [{
+            ticks: {
+              beginAtZero: true
+            }
+          }]
+        }
+      }
+    });
+
+
+
+
+
+
+
+    // ==============================================
+    // Horizontal bar chart 1
+    //
+    new Chart($("#chart-hbar-1"), {
+      type: 'horizontalBar',
+
+      // Data
+      //
+      data: {
+      labels: ["January", "February", "March", "April", "May", "June", "July"],
+        datasets: [
+          {
+            label: "Income",
+            backgroundColor: "rgba(51,202,185,0.5)",
+            borderColor: "rgba(0,0,0,0)",
+            hoverBackgroundColor: "rgba(51,202,185,0.7)",
+            hoverBorderColor: "rgba(0,0,0,0)",
+            data: [10, 59, 80, 58, 20, 55, 40]
+          }
+        ]
+      },
+
+      // Options
+      //
+      options: {
+        scales: {
+          xAxes: [{
+            ticks: {
+              beginAtZero: true
+            }
+          }]
+        }
+      }
+    });
+
+
+
+
+
+    // ==============================================
+    // Horizontal bar chart 2
+    //
+    new Chart($("#chart-hbar-2"), {
+      type: 'horizontalBar',
+
+      // Data
+      //
+      data: {
+      labels: ["January", "February", "March", "April", "May", "June", "July"],
+        datasets: [
+          {
+            label: "Income",
+            backgroundColor: "rgba(51,202,185,0.5)",
+            borderColor: "rgba(0,0,0,0)",
+            hoverBackgroundColor: "rgba(51,202,185,0.7)",
+            hoverBorderColor: "rgba(0,0,0,0)",
+            data: [10, 59, 80, 58, 20, 55, 40]
+          },
+          {
+            label: "Expenses",
+            backgroundColor: "rgba(243,245,246,0.8)",
+            borderColor: "rgba(0,0,0,0)",
+            hoverBackgroundColor: "rgba(238,239,240,1)",
+            hoverBorderColor: "rgba(0,0,0,0)",
+            data: [28, 48, 40, 19, 86, 27, 90]
+          }
+        ]
+      },
+
+      // Options
+      //
+      options: {
+        scales: {
+          xAxes: [{
+            ticks: {
+              beginAtZero: true
+            }
+          }]
+        }
+      }
+    });
+
+
+
+
+
+    // ==============================================
+    // Radar chart
+    //
+    new Chart($("#chart-radar"), {
+      type: 'radar',
+
+      // Data
+      //
+      data: {
+      labels: ["Eating", "Drinking", "Sleeping", "Designing", "Coding", "Cycling", "Running"],
+        datasets: [
+          {
+            label: "Person 1",
+            backgroundColor: "rgba(51,202,185,0.7)",
+            borderColor: "rgba(0,0,0,0)",
+            pointBackgroundColor: "rgba(51,202,185,0.7)",
+            pointBorderColor: "#fff",
+            pointHoverBackgroundColor: "#fff",
+            pointHoverBorderColor: "rgba(51,202,185,0.7)",
+            data: [65, 59, 90, 81, 56, 55, 40]
+          },
+          {
+            label: "Person 2",
+            backgroundColor: "rgba(72,176,247,0.7)",
+            borderColor: "rgba(0,0,0,0)",
+            pointBackgroundColor: "rgba(72,176,247,0.7)",
+            pointBorderColor: "#fff",
+            pointHoverBackgroundColor: "#fff",
+            pointHoverBorderColor: "rgba(72,176,247,0.7)",
+            data: [28, 48, 40, 19, 96, 27, 100]
+          }
+        ]
+      },
+
+      // Options
+      //
+      options: {
+        responsive: false,
+        legend: {
+          display: false
+        }
+      }
+    });
+
+
+
+
+
+
+    // ==============================================
+    // Polar area chart
+    //
+    new Chart($("#chart-polar"), {
+      type: 'polarArea',
+
+      // Data
+      //
+      data: {
+        datasets: [{
+          data: [
+            11,
+            16,
+            7,
+            3,
+            14
+          ],
+          backgroundColor: [
+            'rgba(255,99,132,0.95)',
+            'rgba(75, 192, 192, 0.95)',
+            'rgba(255, 159, 64, 0.95)',
+            'rgba(231, 233, 237, 0.95)',
+            'rgba(54, 162, 235, 0.95)'
+          ],
+          label: 'My dataset' // for legend
+        }],
+        labels: [
+          "Red",
+          "Green",
+          "Orange",
+          "Grey",
+          "Blue"
+        ]
+      },
+
+      // Options
+      //
+      options: {
+        responsive: false,
+        legend: {
+          display: false
+        }
+      }
+    });
+
+
+
+
+
+    // ==============================================
+    // Pie chart
+    //
+    new Chart($("#chart-pie"), {
+      type: 'pie',
+
+      // Data
+      //
+      data: {
+        labels: [
+          "Red",
+          "Blue",
+          "Orange"
+        ],
+        datasets: [
+          {
+            data: [300, 50, 100],
+            backgroundColor: [
+              'rgba(255,99,132,1)',
+              'rgba(54, 162, 235, 1)',
+              'rgba(255, 206, 86, 1)'
+            ]
+          }]
+      },
+
+      // Options
+      //
+      options: {
+        responsive: false
+      }
+    });
+
+
+
+
+
+    // ==============================================
+    // Doughnut chart
+    //
+    new Chart($("#chart-doughnut"), {
+      type: 'doughnut',
+
+      // Data
+      //
+      data: {
+        labels: [
+          "Red",
+          "Blue",
+          "Orange"
+        ],
+        datasets: [
+          {
+            data: [300, 50, 100],
+            backgroundColor: [
+              'rgba(255,99,132,1)',
+              'rgba(54, 162, 235, 1)',
+              'rgba(255, 206, 86, 1)'
+            ]
+          }]
+      },
+
+      // Options
+      //
+      options: {
+        responsive: false
+      }
+    });
+
+
+
+
+
+
+    // ==============================================
+    // Bubble chart
+    //
+    new Chart($("#chart-bubble"), {
+      type: 'bubble',
+
+      // Data
+      //
+      data: {
+        datasets: [
+          {
+            label: 'Pink',
+            data: [
+              {
+                x: 8,
+                y: 24,
+                r: 18
+              },
+              {
+                x: 20,
+                y: 30,
+                r: 15
+              },
+              {
+                x: 40,
+                y: 10,
+                r: 10
+              }
+            ],
+            backgroundColor:"#ff6384",
+            hoverBackgroundColor: "#ff6384",
+          },
+          {
+            label: 'Blue',
+            data: [
+              {
+                x: 10,
+                y: 35,
+                r: 5
+              },
+              {
+                x: 5,
+                y: 5,
+                r: 20
+              },
+              {
+                x: 30,
+                y: 15,
+                r: 10
+              }
+            ],
+            backgroundColor:"#36a2eb",
+            hoverBackgroundColor: "#36a2eb",
+          },
+          {
+            label: 'Yellow',
+            data: [
+              {
+                x: 17,
+                y: 21,
+                r: 8
+              },
+              {
+                x: 25,
+                y: 15,
+                r: 12
+              },
+              {
+                x: 12,
+                y: 31,
+                r: 16
+              }
+            ],
+            backgroundColor:"#ffce56",
+            hoverBackgroundColor: "#ffce56",
+          },
+        ]
+      },
+
+      // Options
+      //
+      options: {
+        legend: {
+          display: false
+        },
+
+        scales: {
+          xAxes: [{
+            ticks: {
+              beginAtZero: true
+            }
+          }],
+          yAxes: [{
+            ticks: {
+              beginAtZero: true
+            }
+          }]
+        }
+      }
+    });
+
+  });
+</script>
+
+      
+</body>
+</html>
